@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h4>Sample Screen</h4>
+    <input type="number" id="num" />
+    <input type="button" id="btn-add" value="Add" onclick="btnAdd()" />
+    <input
+      type="button"
+      id="btn-display"
+      value="Display"
+      onclick="btnDisplay()"
+    />
+    <hr />
+    <div id="display"></div>
+  </body>
+  <script>
+    let display = document.getElementById("display");
+
+    let arr = [0, 1, 2];
+
+    const btnAdd = () => {
+      let numInput = document.getElementById("num");
+      let num = +numInput.value;
+      arr.push(num);
+      numInput.value = "";
+      numInput.focus();
+      btnDisplay();
+    };
+
+    const btnDisplay = () => {
+      let mess = "";
+      for (let i = 0; i < arr.length; i++) {
+        mess += `Element ${i} = ${arr[i]} <br/>`;
+      }
+      display.innerHTML = mess;
+    };
+  </script>
+</html>
