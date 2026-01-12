@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="word" placeholder="Nhập vào xe bạn cần tìm kiếm" />
+    <input type="button" value="Search" onclick="search()" />
+  </body>
+  <script>
+    function search() {
+      let wordD = document.getElementById("word");
+      let word = wordD.value.toLocaleLowerCase();
+      let found = false;
+      let car = 0;
+      const arrCar = ["BMW", "Mercedes", "Volvo", "Civic", "Audi"];
+      for (let i = 0; i < arrCar.length; i++) {
+        if (word === arrCar[i].toLocaleLowerCase()) {
+          car = i;
+          found = true;
+          break;
+        }
+      }
+      if (found) {
+        alert(`Đã tìm thấy ${arrCar[car]}`);
+      } else {
+        alert(`Không có xe nào tên tên ${word}`);
+      }
+    }
+  </script>
+</html>
