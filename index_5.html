@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caro Game Simple</title>
+</head>
+<body>
+    <h3>Caro Game Simple</h3>
+    <p id="carogame"></p>
+    <input type="button" value="Change Value" onclick="changeValue()">
+
+    <script>
+        let b = document.getElementById("carogame");
+        let board = [];
+        let data = "";
+
+        // 1. Tạo mảng 2 chiều 5x5 toàn số 0
+        for (let i = 0; i < 5; i++) {
+            board[i] = ["0", "0", "0", "0", "0"];
+        }
+
+        // 2. Hàm để hiển thị mảng ra màn hình
+        function displayBoard() {
+            data = "";
+            for (let i = 0; i < 5; i++) {
+                data += "<br/>";
+                for (let j = 0; j < 5; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;";
+                }
+            }
+            b.innerHTML = data;
+        }
+
+        // Gọi hàm để hiện bàn cờ lúc mới nạp trang
+        displayBoard();
+
+        // 3. Hàm xử lý khi bấm nút "Change Value"
+        function changeValue() {
+            let positionX = prompt("Nhập tọa độ X (hàng 0-4): ");
+            let positionY = prompt("Nhập tọa độ Y (cột 0-4): ");
+            
+            // Cập nhật giá trị tại vị trí người dùng chọn
+            board[positionX][positionY] = "x";
+            
+            // Vẽ lại bàn cờ mới
+            displayBoard();
+        }
+    </script>
+</body>
+</html>
